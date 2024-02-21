@@ -13,4 +13,79 @@
       <div>{{ name | titlecase }}</div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="">Payment Date</label>
+      <input
+        type="date"
+        class="form-control"
+        (input)="onDatechange($any($event.target).value)"
+      />
+    </div>
+    <div class="col">
+      <label><b> Payment Date</b></label>
+      <div>{{ date | date : "MMMM d, yyyy" }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label for="">Amount</label>
+      <input
+        type="number"
+        class="form-control"
+        (input)="onAmoutnchange($any($event.target).value)"
+      />
+    </div>
+    <div class="col">
+      <label><b> Amount</b></label>
+      <div>{{ amount | currency : "KRW" }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label for="">Height</label>
+      <input
+        type="number"
+        class="form-control"
+        (input)="onHeightnchange($any($event.target).value)"
+      />
+    </div>
+    <div class="col">
+      <label><b> Height</b></label>
+      <div>{{ height | number : "4.1-4" }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label for="">Height</label>
+      <input
+        type="number"
+        class="form-control"
+        (input)="onHeightnchange($any($event.target).value)"
+      />
+    </div>
+    <div class="col">
+      <label><b> Height</b></label>
+      <div>{{ height | number : "4.1-4" }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label for="">Distance</label>
+      <input
+        type="number"
+        class="form-control"
+        (input)="onMilesChange($any($event.target).value)"
+      />
+    </div>
+    <div class="col">
+      <label><b> Miles</b></label>
+      <div *ngIf="(miles | convert : 'Km') > 10">
+        {{ miles | convert : "Km" | number : "1.0-2" }}
+      </div>
+    </div>
+  </div>
 </div>
+
+{{ car | json }}
